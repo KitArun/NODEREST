@@ -18,7 +18,7 @@ app.use(express.json());
 
 // create books table if it doesn't exist
 db.run(`CREATE TABLE IF NOT EXISTS books (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY,
     title TEXT,
     author TEXT
 )`);
@@ -80,7 +80,7 @@ app.delete('/books/:id', (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.send();
+            res.send(book);
         }
     });
 });
